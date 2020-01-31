@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 
 // creating a component called TodoList
-function TodoList() {
+class TodoList extends Component {
+    constructor(){
+        super();
+        this.state = {
+            userInput: '',
+            items: []
+        };
+    }
+
+    render(){
     return (
         <div> 
             <h1> My TodoList </h1>
             <form> 
-                <input type="text" placeholder="Renseigner un item"/>
+                <input value ={this.state.userInput} type="text" placeholder="Renseigner un item"/>
+                <button> Add </button>
             </form>
         </div>
     );
   }
-  
+}
 export default TodoList;
