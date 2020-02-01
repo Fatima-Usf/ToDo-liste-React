@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const MAX_LENGTH = 100;
+const MAX_LENGTH = 3;
 
 // creating a component called TodoList
 class TodoList extends Component {
@@ -64,7 +64,7 @@ class TodoList extends Component {
                     type="text"
                     name="name"
                     placeholder="Add new item"
-                
+                    style={this.state.userInput.length>MAX_LENGTH ? {"border":"2px solid red"}: {}}
                     //style={{border:"2px solid red"}}
                     // bind() pour ne pas appeller la méthode une infinité de fois
                     onChange={this.onChange.bind(this)}

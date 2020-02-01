@@ -22,9 +22,6 @@ body {
     font-size: 16px; 
 
   }
-#error{
-  border:2px solid red;
-}
 
 input[type="text"].form__inputText--addItem {
     padding-right: 220px; }
