@@ -1,13 +1,31 @@
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: rgb(201, 59, 214);
+  background: #ECF3F7; 
+}
+.container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto; }
+
+.list__item{
+  background: rgba(240, 98, 146, 0.85);
+  color: #ECF3F7; }
+
+.forminput {
+    width: 100%;
+    height: 50px;
+    font-size: 16px; 
+
+  }
+#error{
+  border:2px solid red;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+input[type="text"].form__inputText--addItem {
+    padding-right: 220px; }
+

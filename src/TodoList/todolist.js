@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
 
+const MAX_LENGTH = 100;
+
 // creating a component called TodoList
 class TodoList extends Component {
     constructor(){
         super();
         this.state = {
             userInput: '',
-            items: []
+            items: [],
+            valid: true
+
         };
     }
-
+   
     onChange(event){
         this.setState({
             userInput: event.target.value
+            
         }//, () => console.log(this.state.userInput)
+        
         );
+
+        
     }
+
     addToDo(event){
         event.preventDefault();
         this.setState({
@@ -36,24 +45,40 @@ class TodoList extends Component {
         // loopé pour chaque item 
         return this.state.items.map((item) => {
             return (
-                <div key={item}>
-                    {item} <button onClick={this.deleteTodo.bind(this, item)}> X </button>
+                <div className="list__item" key={item}>
+                    <div className="list__checkbox">
+					<input type="checkbox" />
+                    {item} <button onClick={this.deleteTodo.bind(this, item)}> X </button> 
+                    </div>
                 </div>
             );
         });
     }
     render(){
     return (
-        <div> 
-            <h1> My TodoList </h1>
+        <div className="container">  
+            <h1> ToDo Today </h1>
             <form> 
-                <input 
+                <input className="forminput" 
                     value ={this.state.userInput} 
                     type="text"
-                    placeholder="Item"
+                    name="name"
+                    placeholder="Add new item"
+                
+                    //style={{border:"2px solid red"}}
                     // bind() pour ne pas appeller la méthode une infinité de fois
-                    onChange={this.onChange.bind(this)}/>
-                <button onClick={this.addToDo.bind(this)}> Add </button>
+                    onChange={this.onChange.bind(this)}
+                    />
+                    
+                <button
+                    onClick={this.addToDo.bind(this)}
+                    disabled={this.state.userInput.length>MAX_LENGTH}
+                >
+                    Add
+                </button>
+                <span style={{color: "red"}}>
+                    {`Current count: ${this.state.userInput.length}/${MAX_LENGTH}`}
+                </span>
             </form>
             <div>
                 {this.renderTodo()}
