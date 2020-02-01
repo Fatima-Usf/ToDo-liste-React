@@ -23,12 +23,21 @@ class TodoList extends Component {
             items: [...this.state.items, this.state.userInput]
         });
     }
+    deleteTodo(item) {
+    
+        const array = this.state.items;
+        const index = array.indexOf(item);
+        array.splice(index, 1);
+        this.setState({
+            items: array
+        });
+    }
     renderTodo(){
         // loopé pour chaque item 
         return this.state.items.map((item) => {
             return (
                 <div key={item}>
-                    {item} <button> X </button>
+                    {item} <button onClick={this.deleteTodo.bind(this, item)}> X </button>
                 </div>
             );
         });
