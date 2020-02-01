@@ -10,12 +10,22 @@ class TodoList extends Component {
         };
     }
 
+    onChange(event){
+        this.setState({
+            userInput: event.target.value
+        }, () => console.log(this.state.userInput));
+    }
     render(){
     return (
         <div> 
             <h1> My TodoList </h1>
             <form> 
-                <input value ={this.state.userInput} type="text" placeholder="Renseigner un item"/>
+                <input 
+                    value ={this.state.userInput} 
+                    type="text"
+                    placeholder="Item"
+                    onChange={this.onChange.bind(this)}
+                        />
                 <button> Add </button>
             </form>
         </div>
